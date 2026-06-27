@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQR400 BSI FLASH v3.3 - 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="container">
+        <header>
+            <h1><span class="glitch" data-text="SQR400">SQR400</span> BSI FLASH v3.3</h1>
+            <p class="status">JAKARTA RELAY • LIVE • FULL RECEIVER PROMPT</p>
+        </header>
+        
+        <div class="terminal">
+            <form id="flashForm">
+                <div class="input-group">
+                    <label>TRANSFER TYPE:</label>
+                    <select name="type" required>
+                        <option value="mt103_bsi">MT103_BSI (JAKARTA)</option>
+                        <option value="mt103_gpi">MT103_GPI</option>
+                        <option value="mt103_202">MT103/202</option>
+                        <option value="mt103_ipip">MT103_IPIP</option>
+                        <option value="mt103_cash">MT103_CASH</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>AMOUNT:</label>
+                    <input type="number" name="amount" value="50000" min="1000" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>CURRENCY:</label>
+                    <select name="currency" required>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>OFFICER PIN:</label>
+                    <input type="password" name="pin" value="123456" required maxlength="6">
+                </div>
+                
+                <div class="input-group">
+                    <label>SENDER:</label>
+                    <input type="text" name="sender_file" value="sender.json" readonly>
+                </div>
+                
+                <div class="receiver-section">
+                    <h3 style="color:#ff00ff; margin:15px 0 10px;">=== RECEIVER PROFILE (PROMPT INPUT) ===</h3>
+                    <div class="input-group">
+                        <label>RECIPIENT BANK NAME:</label>
+                        <input type="text" name="bank_name" placeholder="e.g. JPMorgan Chase" required>
+                    </div>
+                    <div class="input-group">
+                        <label>SWIFT/BIC:</label>
+                        <input type="text" name="bic" placeholder="e.g. CHASUS33XXX" required>
+                    </div>
+                    <div class="input-group">
+                        <label>ACCOUNT NUMBER:</label>
+                        <input type="text" name="account_number" placeholder="1234567890" required>
+                    </div>
+                    <div class="input-group">
+                        <label>ACCOUNT HOLDER NAME:</label>
+                        <input type="text" name="account_holder" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label>BANK FULL ADDRESS:</label>
+                        <input type="text" name="bank_address" placeholder="123 Wall Street, NY, USA" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="hack-btn">EXECUTE FLASH TRANSFER</button>
+            </form>
+        </div>
+        
+        <div id="output" class="output terminal-log"></div>
+        
+        <footer>
+            <p>TRACE: <span id="trace">BSI-2026-LIVE</span> | MHCode Underground</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
